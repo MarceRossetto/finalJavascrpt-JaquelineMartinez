@@ -1,7 +1,7 @@
 //--MENSAJES--
 "use strict"
 
-//--FUNCIONES--------------------------------------
+//--Funciones--
 
 const mostrarMensaje = (texto) => {
   $('#mensaje')

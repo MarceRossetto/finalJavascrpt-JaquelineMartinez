@@ -1,7 +1,7 @@
 //--MENU DE NAVBAR--
 "use strict"
 
-//--FUNCIONES--------------------------------------
+//--Funciones--
 
 const crearBotonMenuNavBar = (elementoMenu, espectaculos, carrito) => {
   const button = ($('<button>')
@@ -33,7 +33,7 @@ $('.nav-item').on('click', function () {
   $('.navbar-collapse').collapse('hide');
 });
 
-// Boton en logo lleva a inicio
+// El logo lleva al inicio--
 $("#botonLogo").click(() => {
   imprimirTarjetasFiltradas(espectaculosStorageConvertidos, "INICIO", listaDeCarrito)
 });

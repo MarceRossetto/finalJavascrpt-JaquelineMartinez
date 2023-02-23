@@ -2,109 +2,136 @@
     {
       "id": 1,
       "tipo": "PELICULA",
-      "nombre": "Volver al Futuro",
-      "lugar": "Cine Ocho",
-      "precio": 500,
-      "stockEntradas": 100,
-      "imagen": "https://res.cloudinary.com/carlo1112/image/upload/v1630191013/tickets/shows/VolverAlFuturo_rmcgbh.jpg"
+      "nombre": "Avatar",
+      "lugar": "Cinemark",
+      "precio": 1100,
+      "stockEntradas": 200,
+      "imagen": "https://res.cloudinary.com/dp4gsj4sq/image/upload/v1677186811/Avatar_El_sentido_del_agua-722646748-large_1_wmmnle.jpg"
     },
     {
       "id": 2,
       "tipo": "TEATRO",
-      "nombre": "Romeo y Julieta",
-      "lugar": "Teatro Colón",
-      "precio": 2000,
-      "stockEntradas": 450,
-      "imagen": "https://res.cloudinary.com/carlo1112/image/upload/v1630191015/tickets/shows/RomeoYJulieta_wrjlwj.jpg"
+      "nombre": "Inmaduros",
+      "lugar": "Teatro Nacional",
+      "precio": 5100,
+      "stockEntradas": 200,
+      "imagen": "https://res.cloudinary.com/dp4gsj4sq/image/upload/v1677187491/inmaduros_1_fy6jyp.jpg"
     },
     {
       "id": 3,
       "tipo": "RECITAL",
-      "nombre": "Rata Blanca",
+      "nombre": "La T y La M",
       "lugar": "Teatro Gran Rex",
-      "precio": 2500,
-      "stockEntradas": 150,
-      "imagen": "https://res.cloudinary.com/carlo1112/image/upload/v1630191014/tickets/shows/RataBlanca_fs0kqm.jpg"
+      "precio": 3500,
+      "stockEntradas": 200,
+      "imagen": "https://res.cloudinary.com/dp4gsj4sq/image/upload/v1677188789/400x600_1_cru85v.png"
     },
     {
       "id": 4,
       "tipo": "TEATRO",
-      "nombre": "Entre Ella y Yo",
+      "nombre": "Dos Locas de Remate",
       "lugar": "Teatro Opera",
-      "precio": 900,
-      "stockEntradas": 450,
-      "imagen": "https://res.cloudinary.com/carlo1112/image/upload/v1630191007/tickets/shows/EntreEllaYYo_es7cnm.jpg"
+      "precio": 5000,
+      "stockEntradas": 200,
+      "imagen": "https://res.cloudinary.com/dp4gsj4sq/image/upload/v1677187585/dos-locas-de-remate_1_uqrwg9.jpg"
     },
     {
       "id": 5,
       "tipo": "PELICULA",
-      "nombre": "Cruella",
-      "lugar": "Cinema Paradiso",
-      "precio": 600,
+      "nombre": "Alerta Extrema",
+      "lugar": "Cinemark Caballito",
+      "precio": 1100,
       "stockEntradas": 200,
-      "imagen": "https://res.cloudinary.com/carlo1112/image/upload/v1630191007/tickets/shows/Cruella_m6tj0r.jpg"
+      "imagen": "https://res.cloudinary.com/dp4gsj4sq/image/upload/v1677186678/alertaextrema_vghd2b.jpg"
     },
     {
       "id": 6,
       "tipo": "RECITAL",
-      "nombre": "Ciro y los Persas",
-      "lugar": "Estadio Atenas",
+      "nombre": "Soledad",
+      "lugar": "Teatro Gran Rex",
       "precio": 4000,
       "stockEntradas": 250,
-      "imagen": "https://res.cloudinary.com/carlo1112/image/upload/v1630191006/tickets/shows/CiroYLosPersas_hfeafe.jpg"
+      "imagen": "https://res.cloudinary.com/dp4gsj4sq/image/upload/v1677188789/asadas-2_1_ytmpss.png"
     },
     {
       "id": 7,
       "tipo": "TEATRO",
-      "nombre": "Ay Amor Divino",
-      "lugar": "Teatro Cervantes",
-      "precio": 1500,
+      "nombre": "Mi Madre, Mi Novia y Yo",
+      "lugar": "Teatro Nacional",
+      "precio": 5500,
       "stockEntradas": 200,
-      "imagen": "https://res.cloudinary.com/carlo1112/image/upload/v1630191007/tickets/shows/AyAmorDivino_jcstis.jpg"
+      "imagen": "https://res.cloudinary.com/dp4gsj4sq/image/upload/v1677187585/mi-madre-mi-novia-y-yo_1_ob844m.jpg"
     },
     {
       "id": 8,
       "tipo": "PELICULA",
-      "nombre": "Space Jam",
+      "nombre": "Scream 6",
       "lugar": "Cine San Martín",
-      "precio": 800,
-      "stockEntradas": 300,
-      "imagen": "https://res.cloudinary.com/carlo1112/image/upload/v1630191013/tickets/shows/SpaceJam_r4lwdq.jpg"
+      "precio": 1100,
+      "stockEntradas": 200,
+      "imagen": "https://res.cloudinary.com/dp4gsj4sq/image/upload/v1677186882/scream_elyyqq.jpg"
     },
     {
       "id": 9,
       "tipo": "RECITAL",
-      "nombre": "Divididos",
-      "lugar": "Teatro Flores",
+      "nombre": "LALI",
+      "lugar": "Teatro Luna Park",
       "precio": 2300,
       "stockEntradas": 250,
-      "imagen": "https://res.cloudinary.com/carlo1112/image/upload/v1630191008/tickets/shows/Divididos_uyyt6i.jpg"
+      "imagen": "https://res.cloudinary.com/dp4gsj4sq/image/upload/v1677188789/oCFQKJF5o_720x0__1_1_sslvxj.jpg"
     },
     {
       "id": 10,
       "tipo": "TEATRO",
-      "nombre": "Drácula",
-      "lugar": "Teatro Gran Rivadavia",
-      "precio": 1000,
-      "stockEntradas": 450,
-      "imagen": "https://res.cloudinary.com/carlo1112/image/upload/v1630191006/tickets/shows/Dracula_mlbxdr.jpg"
+      "nombre": "Costa Presidenta",
+      "lugar": "Teatro opera",
+      "precio": 5000,
+      "stockEntradas": 200,
+      "imagen": "https://res.cloudinary.com/dp4gsj4sq/image/upload/v1677187585/costa-presidenta_1_wdybdl.jpg"
     },
     {
       "id": 11,
       "tipo": "RECITAL",
-      "nombre": "Emmanuel Horviller",
-      "lugar": "Centro Cultural Konex",
-      "precio": 4000,
-      "stockEntradas": 250,
-      "imagen": "https://res.cloudinary.com/carlo1112/image/upload/v1630191006/tickets/shows/EmmanuelHorvilleur_cgy58s.jpg"
+      "nombre": "Lucas Sugo",
+      "lugar": "Teatro Gran Rex",
+      "precio": 5000,
+      "stockEntradas": 200,
+      "imagen": "https://res.cloudinary.com/dp4gsj4sq/image/upload/v1677188789/DTPYMGVM2VFFFL5QGNBC7TQULY_1_m0vtqj.jpg"
     },
     {
       "id": 12,
       "tipo": "PELICULA",
-      "nombre": "Rápido y Furioso 9",
+      "nombre": "Quantumania",
       "lugar": "Cinema City",
-      "precio": 800,
-      "stockEntradas": 300,
-      "imagen": "https://res.cloudinary.com/carlo1112/image/upload/v1630191015/tickets/shows/RapidoYFurioso9_eabosz.jpg"
-    }
+      "precio": 1100,
+      "stockEntradas": 200,
+      "imagen": "https://res.cloudinary.com/dp4gsj4sq/image/upload/v1677186965/quantumania_iztgaq.jpg"
+    },
+    {
+        "id": 13,
+        "tipo": "PELICULA",
+        "nombre": "Madre Ven",
+        "lugar": "Cinema City",
+        "precio": 1100,
+        "stockEntradas": 200,
+        "imagen": "https://res.cloudinary.com/dp4gsj4sq/image/upload/v1677187106/ff512ff95f915d83fd1b59d28eec794f_1_dkeyt3.jpg"
+      },
+      {
+        "id": 14,
+        "tipo": "PELICULA",
+        "nombre": "Las Momias",
+        "lugar": "Cinema City",
+        "precio": 1100,
+        "stockEntradas": 200,
+        "imagen": "https://res.cloudinary.com/dp4gsj4sq/image/upload/v1677187287/655ce40bf384adfdda94d587bee01549_1_ah6vrj.jpg"
+      },
+      {
+        "id": 15,
+        "tipo": "TEATRO",
+        "nombre": "La Verdad",
+        "lugar": "Teatro Nacional",
+        "precio": 5500,
+        "stockEntradas": 200,
+        "imagen": "https://res.cloudinary.com/dp4gsj4sq/image/upload/v1677187865/la-verdad_1_wse7w0.jpg"
+      }
   ]

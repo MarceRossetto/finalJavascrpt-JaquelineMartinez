@@ -1,7 +1,4 @@
-//--MODAL----------------------------------
-"use strict"
-
-//--FUNCIONES--------------------------------------
+//--Funciones--
 
 const mostrarMensajeEnModal = (texto, esError = false) => {
   const myModal = $("#myModal");

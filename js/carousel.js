@@ -1,7 +1,7 @@
 //--CAROUSEL--
 "use strict"
 
-//--FUNCIONES--------------------------------------
+//--Funciones--
 
 const crearCarousel = () => {
   $("#carouselExampleCaptions")
@@ -15,7 +15,7 @@ const crearCarousel = () => {
 			<div class="carousel-inner" role="listbox">
 				<div class="carousel-item active">
 					<a id="btnCarouselCine" role="button">
-						<img src="https://res.cloudinary.com/carlo1112/image/upload/v1630191033/tickets/carousel/image01_dzp6ch.jpg" class="d-block w-100" alt="Imagen 1">
+						<img src="https://res.cloudinary.com/dp4gsj4sq/image/upload/v1677189375/F2X2EGBPKRFH3NMCNN2M7XPZQM_1_pnns0l.jpg" class="d-block w-100" alt="Imagen 1">
 						<div class="carousel-caption d-md-block">
 							<h5>CINE</h5>
 						<p>¡Comprá entradas para películas estreno!</p>
@@ -24,7 +24,7 @@ const crearCarousel = () => {
 				</div>
 				<div class="carousel-item">
 					<a id="btnCarouselTeatro" role="button">
-						<img src="https://res.cloudinary.com/carlo1112/image/upload/v1630191034/tickets/carousel/image02_lw3yti.jpg" class="d-block w-100" alt="Imagen 2">
+						<img src="https://res.cloudinary.com/dp4gsj4sq/image/upload/v1677189375/teatro_colo_interior_gte1500x610_1_kl0auc.jpg" class="d-block w-100" alt="Imagen 2">
 						<div class="carousel-caption d-md-block">              
 							<h5>TEATRO</h5>              
 							<p>¡Comprá entradas para obras de teatro!</p>
@@ -33,7 +33,7 @@ const crearCarousel = () => {
 				</div>
 				<div class="carousel-item">
 					<a id="btnCarouselRecital" role="button">
-						<img src="https://res.cloudinary.com/carlo1112/image/upload/v1630191034/tickets/carousel/image03_prneaj.jpg" class="d-block w-100" alt="Imagen 3">
+						<img src="https://res.cloudinary.com/dp4gsj4sq/image/upload/v1677189376/5ffe2012cb34e_950_534_1_urqdos.png" class="d-block w-100" alt="Imagen 3">
 						<div class="carousel-caption d-md-block">         
 							<h5>RECITALES</h5>             
 							<p>¡Comprá entradas para los próximos recitales!</p>

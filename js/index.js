@@ -1,6 +1,6 @@
 "use strict"
 
-//-- CONSTANTES ----------------------------------------------------------
+//-- Constantes--
 
 const KEY_ESPECTACULOS = "espectaculos";
 const ARREGLO_MENU = [
@@ -9,12 +9,12 @@ const ARREGLO_MENU = [
   { tipo: "TEATRO", texto: "TEATRO" },
 ];
 
-//-- CLASE Espectaculo -------------------------------------------------
+//-- Class Espectaculo--
 
 class Espectaculo {
   constructor(datosEspectaculo) {
     this.id = parseInt(datosEspectaculo.id);
-    this.tipo = datosEspectaculo.tipo; // PELICULA, TEATRO, RECITAL
+    this.tipo = datosEspectaculo.tipo; 
     this.nombre = datosEspectaculo.nombre;
     this.lugar = datosEspectaculo.lugar;
     this.precio = parseFloat(datosEspectaculo.precio);
@@ -42,7 +42,7 @@ class Espectaculo {
   }
 }
 
-//-- CLASE Elementos de carrito --------------------------
+//-- Elementos del carro--
 
 class ItemCarrito {
   constructor(nuevoItem) {
@@ -56,7 +56,7 @@ class ItemCarrito {
   }
 }
 
-//-- FUNCIONES --------------------------------------------------------
+//-- Funciones--
 
 const imprimirBotonesPagoCarrito = (espectaculos, carrito) => {
   const total = calcularTotalAPagar(carrito);
@@ -79,33 +79,33 @@ const eliminarBotonesPagoCarrito = () => {
 
 
 const actualizarCantidadDisponibleEnTarjeta = (espectaculo) => {
-  // Busca el input de cantidad y lo asigna al maximo posible a comprar
+  
   const idTarjetaEspectaculo = `${espectaculo.id}_cantidad`;
-  // Se actualiza el maximo, y se reinicia el number box a 0
+  
   $(`#${idTarjetaEspectaculo}`)
     .attr({ 'max': espectaculo.obtenerStock })
     .val('0');
 
   if (espectaculo.obtenerStock === 0) {
-    // Si seleccionó todo el stock disponible y lo guardó en el carrito, se deshabilita el number box, y se deshabilita y cambia a color rojo el boton para agregar a carrito
+    
     const idTarjetaEspectaculo = `espectaculo_${espectaculo.id}`;
     const idButtonTarjetaEspectaculo = `button_${idTarjetaEspectaculo}`;
     const idCantidadTarjetaEspectaculo = `${idTarjetaEspectaculo}_cantidad`;
     const idDivButtonTarjetaEspectaculo = `div_button_${idTarjetaEspectaculo}`;
-    $(`#${idDivButtonTarjetaEspectaculo}`).attr('class', 'disabled');     // Se deshabilita el boton de agregar al carrito
-    $(`#${idButtonTarjetaEspectaculo}`).attr('class', 'btn btn-danger');  // Se cambia el boon de carrito por uno rojo
-    $(`#${idCantidadTarjetaEspectaculo} input`).addClass('disabled').prop('disabled', true); // Deshabilita number box
+    $(`#${idDivButtonTarjetaEspectaculo}`).attr('class', 'disabled');     
+    $(`#${idButtonTarjetaEspectaculo}`).attr('class', 'btn btn-danger');  
+    $(`#${idCantidadTarjetaEspectaculo} input`).addClass('disabled').prop('disabled', true); 
   }
 }
 
 const agregarAlCarrito = (espectaculo, carrito) => {
-  const idTarjetaEspectaculo = `${espectaculo.id}_cantidad`;  // Con los datos de mi espectaculo, creo el nombre del id a buscar.
+  const idTarjetaEspectaculo = `${espectaculo.id}_cantidad`;  
 
-  if ($(`#${idTarjetaEspectaculo}`)) {        // Si esta en el HTML
-    const cantEntradas = parseInt($(`#${idTarjetaEspectaculo}`).val()); // Obtiene la cantidad ingresada en el input del number box
-    if (cantEntradas && cantEntradas > 0 && cantEntradas <= espectaculo.obtenerStock) {   // Validar que la cantidad sea menor al stock de entradas disponible
-      let pos = carrito.findIndex(elemento => elemento.id === espectaculo.id);   // Busco posicion del elemento en "carrito" (si no existe devuelve -1)
-      if (pos >= 0) {             // Si existe le sumo la cantidad, sino lo creo y agrego al carrito
+  if ($(`#${idTarjetaEspectaculo}`)) {        
+    const cantEntradas = parseInt($(`#${idTarjetaEspectaculo}`).val()); 
+    if (cantEntradas && cantEntradas > 0 && cantEntradas <= espectaculo.obtenerStock) {   
+      let pos = carrito.findIndex(elemento => elemento.id === espectaculo.id);   
+      if (pos >= 0) {            
         carrito[pos].cantidad = carrito[pos].cantidad + cantEntradas;
       } else {
         const item = new ItemCarrito({
@@ -119,8 +119,8 @@ const agregarAlCarrito = (espectaculo, carrito) => {
         });
         carrito.push(item);
       }
-      espectaculo.comprarEntradas(cantEntradas);  // Descuento las entradas disponibles en listaDeEspectaculos
-      actualizarCantidadDisponibleEnTarjeta(espectaculo);  // actualiza la UI
+      espectaculo.comprarEntradas(cantEntradas);  
+      actualizarCantidadDisponibleEnTarjeta(espectaculo);  
       mostrarMensajeEnModal(`Se agregaron ${cantEntradas} entradas para "${espectaculo.nombre}" al carrito`);
     } else if (cantEntradas === 0) {
       mostrarMensajeEnModal("Por favor seleccione la cantidad de entradas", true);
@@ -141,13 +141,13 @@ const eliminarItemsCarrito = (carrito) => {
 }
 
 const vaciarCarrito = (espectaculos, carrito) => {
-  // Devuelvo el stock de entradas del carrito a la lista de espectaculos
+  
   carrito.forEach((item, i) => {
-    let pos = espectaculos.findIndex(elemento => elemento.id === item.id); // Busco posicion del elemento en "espectaculos"
-    espectaculos[pos].devolverEntradas(item.cantidad);                    // Se actualiza el stock de entradas para el espectaculo correspondiente
+    let pos = espectaculos.findIndex(elemento => elemento.id === item.id); 
+    espectaculos[pos].devolverEntradas(item.cantidad);                    
   });
-  eliminarItemsCarrito(carrito);                                // Saco el item del carrito
-  imprimirTarjetasFiltradas(espectaculos, "CARRITO", carrito);  // Llama de nuevo a imprimir pantalla carrito
+  eliminarItemsCarrito(carrito);                                
+  imprimirTarjetasFiltradas(espectaculos, "CARRITO", carrito);  
 }
 
 const actualizarTotalPago = (espectaculos, carrito) => {
@@ -156,10 +156,10 @@ const actualizarTotalPago = (espectaculos, carrito) => {
 }
 
 const eliminarDelCarrito = (espectaculos, carrito, itemCarrito) => {
-  const pos = carrito.findIndex(elemento => elemento.id === itemCarrito.id);  // Busco posición del elemento en el carrito
-  const posEspectaculo = espectaculos.findIndex(elemento => elemento.id === itemCarrito.id);  // Busco posición del elemento en la lista de espectaculos
-  espectaculos[posEspectaculo].devolverEntradas(carrito[pos].cantidad); // Actualizar cantidad de entradas
-  carrito.splice(pos, 1);   // Elimina el elemento del carrito
+  const pos = carrito.findIndex(elemento => elemento.id === itemCarrito.id);  
+  const posEspectaculo = espectaculos.findIndex(elemento => elemento.id === itemCarrito.id);  
+  espectaculos[posEspectaculo].devolverEntradas(carrito[pos].cantidad); 
+  carrito.splice(pos, 1);   
   eliminarLaTarjeta(itemCarrito);
   mostrarMensajeEnModal(`${itemCarrito.nombre} fue eliminado del carrito`, true);
   if (carrito.length === 0) {
@@ -170,7 +170,7 @@ const eliminarDelCarrito = (espectaculos, carrito, itemCarrito) => {
 }
 
 const agregarCompraAStorage = (carrito) => {
-  // Guardar carrito en storage como una lista de listas
+  
   if (localStorage.getItem("compras")) {
     let comprasStorage = JSON.parse(localStorage.getItem("compras"));
     comprasStorage.push(carrito);
@@ -182,16 +182,16 @@ const agregarCompraAStorage = (carrito) => {
 }
 
 const finalizarCompra = (espectaculos, carrito) => {
-  agregarCompraAStorage(carrito);   // Guardar compra en lista de compras en Storage
+  agregarCompraAStorage(carrito);   
   eliminarItemsCarrito(carrito);
   eliminarTarjetas();
   eliminarBotonesPagoCarrito();
-  localStorage.setItem(KEY_ESPECTACULOS, JSON.stringify(espectaculos));   // Actualizo los espectaculos en el Storage
-  mostrarMensajeEnModal("Se realizó el pago. Gracias por su compra.");  // Mensaje de pago.
+  localStorage.setItem(KEY_ESPECTACULOS, JSON.stringify(espectaculos));   
+  mostrarMensajeEnModal("Se realizó el pago. Gracias por su compra.");  
   imprimirTarjetasFiltradas(espectaculos, "CARRITO", carrito);
 }
 
-// Realiza la busqueda ingresa, y dependiendo el resultado imprime el mensaje correspondiente y en caso de encontrar coincidencias, las cards.
+
 const buscador = (espectaculos, carrito, busqueda) => {
   $('#cardsId').addClass('search');
   let mensajeDeBusqueda = '';
@@ -212,7 +212,7 @@ const buscador = (espectaculos, carrito, busqueda) => {
   mostrarMensaje(mensajeDeBusqueda);
 }
 
-// Funcion que recibe un elemento del arreglo traído del Storage y crea una instancia de la clase Espectaculo
+
 const crearEspectaculo = (element) => {
   const espectaculo = new Espectaculo({
     id: element.id,
@@ -228,15 +228,15 @@ const crearEspectaculo = (element) => {
 }
 
 const iniciarPagina = (listaConvertida, carrito) => {
-  //-- CREAR SECCIONES DE LA PAGINA -- 
-  crearMenuNavBar(ARREGLO_MENU, listaConvertida, carrito);       // Crea el menú del NavBar de HTML
-  crearCarousel();                                                                    // Crea el carousel
-  crearFormulario();                                                                  // Crea el formulario
-  imprimirTarjetasFiltradas(listaConvertida, "INICIO", carrito) // Imprimir todas las Cards utilizando espectaculosStorageConvertidos
+   
+  crearMenuNavBar(ARREGLO_MENU, listaConvertida, carrito);      
+  crearCarousel();                                                                    
+  crearFormulario();                                                                 
+  imprimirTarjetasFiltradas(listaConvertida, "INICIO", carrito) 
 }
 
 const convertirEspectaculosStorageEIniciarPagina = (listaStorage, listaConvertida, carrito) => {
-  // Se convierte espectaculosStorage en una lista con objetos de la clase Espectaculo (espectaculosStorageConvertidos)
+ 
   listaStorage.forEach(element => {
     const espectaculo = crearEspectaculo(element);
     listaConvertida.push(espectaculo);
@@ -245,33 +245,33 @@ const convertirEspectaculosStorageEIniciarPagina = (listaStorage, listaConvertid
 }
 
 const inicializarDatosYPagina = (espectaculosStorageConvertidos, listaDeCarrito) => {
-  // Si key "espectaculos" existe en el localStorage, no se hace nada, sino se traen los espectaculos del JSON y se guardan en el localStorage
+  
   if (!localStorage.key(KEY_ESPECTACULOS)) {
-    // Se declara la URL del archivo JSON local
-    const URLJSON = "json/espectaculos.json";
-    // Se pide la información almacenada en el JSON
+    
+    const URLJSON = "../json/espectaculos.json";
+    
     $.getJSON(URLJSON, (listaDeEspectaculos, estado) => {
       if (estado === "success") {
-        // Se guarda en el sessionStorage (con key espectaculos) el arreglo traido desde el archivo JSON
+        
         localStorage.setItem(KEY_ESPECTACULOS, JSON.stringify(listaDeEspectaculos));
-        convertirEspectaculosStorageEIniciarPagina(listaDeEspectaculos, espectaculosStorageConvertidos, listaDeCarrito);  // Se convierte espectaculosStorage a un array de objetos Espectaculo
+        convertirEspectaculosStorageEIniciarPagina(listaDeEspectaculos, espectaculosStorageConvertidos, listaDeCarrito);  
       }
     })
   } else {
-    const espectaculosStorage = JSON.parse(localStorage.getItem(KEY_ESPECTACULOS));             // Se trae la lista de espectaculos del Storage
-    convertirEspectaculosStorageEIniciarPagina(espectaculosStorage, espectaculosStorageConvertidos, listaDeCarrito);  // Se convierte espectaculosStorage a un array de objetos Espectaculo
+    const espectaculosStorage = JSON.parse(localStorage.getItem(KEY_ESPECTACULOS));            
+    convertirEspectaculosStorageEIniciarPagina(espectaculosStorage, espectaculosStorageConvertidos, listaDeCarrito);  
   }
 }
 
-//-- VARIABLES ----------------------------------------------------------
+//-- Variables--
 
-// Arreglo para carrito
+
 let listaDeCarrito = [];
 
-// Arreglo de espectaculos convertidos del Storage
+
 const espectaculosStorageConvertidos = [];
 
-//-- PROGRAMA PRINCIPAL ----------------------------------------------------------
+//-- Programa principal
 
 //-- CARGAR DE ARCHIVO JSON, GUARDAR EN STORAGE, CARGAR DE STORAGE, CREAR NUEVO ARREGLO CON OBJETOS ESPECTACULO, CREA SECCIONES DE LA PAGINA --
 inicializarDatosYPagina(espectaculosStorageConvertidos, listaDeCarrito);

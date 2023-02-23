@@ -1,14 +1,14 @@
-//--TARJETAS / CARDS--
+//--Tarjetas--
 "use strict"
 
-//--FUNCIONES--------------------------------------
+//--Funciones--
 
 const crearTarjeta = (espectaculo, idTarjetaEspectaculo, idButtonTarjetaEspectaculo, esCarrito = false) => {
   const tipoEspectaculo = espectaculo.tipo.toLowerCase();
-  let entradas = '<div class="agotado"><strong> Agotado </strong></div>'; // Si no es carrito, o el espectaculo no tiene mas stock, se muestra agotado.
-  let precio = esCarrito ? espectaculo.precio * espectaculo.cantidad : espectaculo.precio;    // Si es tarjeta de carrito muestra el valor de la cantidad * precio
+  let entradas = '<div class="agotado"><strong> Agotado </strong></div>'; 
+  let precio = esCarrito ? espectaculo.precio * espectaculo.cantidad : espectaculo.precio;    
   if (esCarrito || espectaculo.stockEntradas > 0) {
-    // Si es carrito, se muestra "cantidad: numero", si no es carrito se muestra "cantidad: number box"
+    
     const cantidadEntradas = esCarrito ? espectaculo.cantidad : `<input type="number" class="input-cantidad" id="${espectaculo.id}_cantidad" name="cantidad" min="0" max="${espectaculo.obtenerStock}" value="${espectaculo.cantidad || 0}">`;
     const cantidadClasses = esCarrito ? '' : ' d-flex flex-row';
     entradas = `<div id="${idTarjetaEspectaculo}_cantidad" class="cantidad ${cantidadClasses}">
@@ -52,21 +52,21 @@ const imprimirTarjeta = (espectaculo, carrito) => {
 }
 
 const imprimirTarjetaCarrito = (espectaculos, carrito, itemCarrito) => {
-  // Crea Tarjeta de carrito
+  
   const idTarjetaEspectaculo = `espectaculo_${itemCarrito.id}`;
   const idButtonTarjetaEspectaculo = `button_${idTarjetaEspectaculo}`;
 
   const tarjetaEspectaculo = crearTarjeta(itemCarrito, idTarjetaEspectaculo, idButtonTarjetaEspectaculo, true);
   $('#cardsId').append(tarjetaEspectaculo);
 
-  // Botón para eliminar espectáculo de carrito
+  
   $(`#${idButtonTarjetaEspectaculo}`)
     .html('<i class="fas fa-trash"></i>')
     .attr('class', 'btn boton-carrito')
     .click(() => { eliminarDelCarrito(espectaculos, carrito, itemCarrito) });
 }
 
-// Se vacía, se remueve la clase, y se ocultan las tarjetas
+
 const eliminarTarjetas = () => {
   $('#cardsId')
     .empty()
@@ -75,19 +75,19 @@ const eliminarTarjetas = () => {
 }
 
 const eliminarLaTarjeta = (itemCarrito) => {
-  // Elimina la card del HTML
+  
   const idTarjetaEspectaculo = `espectaculo_${itemCarrito.id}`;
-  $(`#${idTarjetaEspectaculo}`).remove();   // Borra el elemento seleccionado
+  $(`#${idTarjetaEspectaculo}`).remove();   
 }
 
 const resetearVista = () => {
-  scrollTop();                    // Se posiciona en la parte superior
-  eliminarTarjetas();             // Se eliminan las tarjetas
-  eliminarMensaje();              // Se elimina el contenido del mensaje superior
-  eliminarBotonesPagoCarrito();   // Se eliminan botones del carrito
-  eliminarCarousel();             // Se elimina carousel
-  eliminarFormulario();           // Se elimina formulario
-  eliminarTitulo();               // Se elimina titulo
+  scrollTop();                    
+  eliminarTarjetas();             
+  eliminarMensaje();              
+  eliminarBotonesPagoCarrito();   
+  eliminarCarousel();             
+  eliminarFormulario();           
+  eliminarTitulo();               
 }
 
 const fadeInTarjetas = () => {
@@ -97,20 +97,19 @@ const fadeInTarjetas = () => {
 const imprimirTarjetasFiltradas = (espectaculos, tipo, carrito, busqueda = '') => {
   resetearVista();
 
-  if (tipo === "INICIO") {                     // Si recibe INICIO imprimo todas las tarjetas
+  if (tipo === "INICIO") {                     
     imprimirCarousel();
     espectaculos.forEach(espectaculo => {
       imprimirTarjeta(espectaculo, carrito);
     });
     fadeInTarjetas();
-  } else if (tipo === "CARRITO") {             // Si recibo CARRITO, imprimo la lista del carrito
-    // IMPRIMIR TARJETAS DE CARRITO
+  } else if (tipo === "CARRITO") {             
     if (carrito.length === 0) {
-      // Mensaje de carrito vacío
+     
       mostrarMensaje(`No posee elementos en el carrito`);
-    } else {                                   // Si recibo otro tipo y coincide con las tarjetas, se imprimen las tarjetas de ese tipo
+    } else {                                  
       mostrarTitulo("Carrito");
-      imprimirBotonesPagoCarrito(espectaculos, carrito);  // IMPRIMIR BOTONES DE PAGO
+      imprimirBotonesPagoCarrito(espectaculos, carrito);  
       carrito.forEach(itemCarrito => {
         imprimirTarjetaCarrito(espectaculos, carrito, itemCarrito);
       });
@@ -123,7 +122,7 @@ const imprimirTarjetasFiltradas = (espectaculos, tipo, carrito, busqueda = '') =
     buscador(espectaculos, carrito, busqueda);
   } else {
     const titulo = ARREGLO_MENU.find(m => m.tipo === tipo).texto;
-    mostrarTitulo(titulo);                   // Muestra el resto de tipos (Película, Teatro, Recital)
+    mostrarTitulo(titulo);                  
     const espectaculoFiltrados = espectaculos.filter(espectaculo => espectaculo.tipo === tipo);
     espectaculoFiltrados.forEach(espectaculo => {
       imprimirTarjeta(espectaculo, carrito);

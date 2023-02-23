@@ -1,7 +1,7 @@
 //--FORMULARIO--
 "use strict"
 
-//--CLASES--------------------------------------
+//--Clases--
 class Suscriptor {
   constructor(nuevoSuscriptor) {
     this.nombre = nuevoSuscriptor.nombre;
@@ -10,7 +10,7 @@ class Suscriptor {
   }
 }
 
-//--FUNCIONES--------------------------------------
+//--Funciones--
 
 const crearFormulario = () => {
   $('#formulario')
@@ -59,7 +59,7 @@ const existeMailEnLista = (suscripciones, nuevoSuscriptor) => {
   return true;
 }
 
-// Si hay key suscriciones, se carga y se agrega (si el mail esta en la lista, no), sino se crea.
+
 const agregarEnStorage = (nuevoSuscriptor) => {
   if (localStorage.getItem("suscripciones")) {
 
@@ -93,14 +93,12 @@ const crearSuscriptor = (e) => {
   });
 
   if (validarCampos(nuevoSuscriptor)) {
-    agregarEnStorage(nuevoSuscriptor);             // Agrega el usuario al storage
-    $('#formularioContacto').trigger("reset");  // vacia el formulario
+    agregarEnStorage(nuevoSuscriptor);             
+    $('#formularioContacto').trigger("reset");  
   } else {
     mostrarMensajeEnModal("Los datos ingresados no son correctos.", true);
   }
 }
 
-//--VARIABLES--------------------------------------
 
-// Lista de suscripciones
 const listaDeSuscriptores = [];

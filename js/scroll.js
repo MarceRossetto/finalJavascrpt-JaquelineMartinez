@@ -1,7 +1,7 @@
 //--MODAL----------------------------------
 "use strict"
 
-//--FUNCIONES--------------------------------------
+//--Funciones--
 
 const mostrarMensajeEnModal = (texto, esError = false) => {
   const myModal = $("#myModal");
@@ -19,7 +19,7 @@ const mostrarMensajeEnModal = (texto, esError = false) => {
   myModal.modal('show');
 }
 
-//--EVENTOS--------------
+//--Eventos--
 
 $("#closeModal").click(() => { $("#myModal").modal('hide'); });
 

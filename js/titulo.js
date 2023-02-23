@@ -1,7 +1,7 @@
-//--TITULOS DE CATEGORIAS--
+//--Titulos de cat--
 "use strict"
 
-//--FUNCIONES--------------------------------------
+//--Funciones--
 
 const mostrarTitulo = (texto) => {
   $('#titulo')
